@@ -153,7 +153,7 @@ function startWebServer(try_times){
                 loadBrowserInfo().then(() => {
                     log.info(`start web server: port = '${port}'. pwd = '${pwd}'`);
                     communicate("web-server", {addr: `127.0.0.1:${port}`, port, pwd}).then(function(r){
-                        if(r.Serverstate != "ok"){ 
+                        if(r.Serverstate != "ok"){
                             log.error(`failed to start backend service: ${r.Error}`);
                             web_status = "error";
                             if(try_times > 0){
@@ -400,7 +400,7 @@ browser.menus.create({
 browser.menus.create({
     id: "scrapbee-capture-advance",
     title: browser.i18n.getMessage("CaptureAdvance"),
-    contexts: ["page", "selection", "frame", "editable", "audio", "video", "link", "image", "password", "tab"],    
+    contexts: ["page", "selection", "frame", "editable", "audio", "video", "link", "image", "password", "tab"],
     documentUrlPatterns: ["http://*/*",  "https://*/*", "file://*/*"],
     icons: {"16": "icons/advance.svg", "32": "icons/advance.svg"},
     onclick: function(info, tab){
@@ -410,7 +410,7 @@ browser.menus.create({
 } , function(){});
 /* add-on toolbar icon */
 browser.browserAction.onClicked.addListener(function(){
-    // browser.sidebarAction.open()
+    browser.sidebarAction.open()
 });
 // browser.browserAction.onClicked.removeListener(listener)
 // browser.browserAction.onClicked.hasListener(listener)
